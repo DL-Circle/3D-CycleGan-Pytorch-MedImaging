@@ -13,7 +13,7 @@ class BaseOptions():
         parser.add_argument('--data_path', type=str, default='./Data_folder/train/', help='Train images path')
         parser.add_argument('--val_path', type=str, default='./Data_folder/test/', help='Validation images path')
         parser.add_argument('--batch_size', type=int, default=2, help='input batch size')
-        parser.add_argument('--patch_size', default=[128, 128, 64], help='Size of the patches extracted from the image')
+        parser.add_argument('--patch_size', default=[128, 128, 96], help='Size of the patches extracted from the image')
         parser.add_argument('--input_nc', type=int, default=1, help='# of input image channels')
         parser.add_argument('--output_nc', type=int, default=1, help='# of output image channels')
         parser.add_argument('--resample', default=False, help='Decide or not to rescale the images to a new resolution')
@@ -27,13 +27,13 @@ class BaseOptions():
         parser.add_argument('--n_layers_D', type=int, default=3, help='only used if netD==n_layers')
         parser.add_argument('--netG', type=str, default='resnet_9blocks', help='selects model to use for netG. Look on Networks3D to see the all list')
 
-        parser.add_argument('--gpu_ids', default='2,3', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+        parser.add_argument('--gpu_ids', default='0,', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         parser.add_argument('--name', type=str, default='experiment_name', help='name of the experiment. It decides where to store samples and models')
         parser.add_argument('--model', type=str, default='cycle_gan', help='chooses which model to use. cycle_gan')
 
         parser.add_argument('--which_direction', type=str, default='AtoB', help='AtoB or BtoA (keep it AtoB)')
         parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
-        parser.add_argument('--workers', default=8, type=int, help='number of data loading workers')
+        parser.add_argument('--workers', default=4, type=int, help='number of data loading workers')
         parser.add_argument('--norm', type=str, default='instance', help='instance normalization or batch normalization')
 
         parser.add_argument('--no_dropout', action='store_true', help='no dropout for the generator')
